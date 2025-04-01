@@ -1,0 +1,51 @@
+import React, {useState} from 'react';
+import {TextInput, Text,StyleSheet, View} from 'react-native';
+
+const Flex = () => {
+  const [text, setText] = useState('');
+  return (
+    <View
+      style={[
+        styles.container,
+        {
+          // Try setting `flexDirection` to `"row"`.
+          flexDirection: 'column',
+        },
+      ]}>
+      <View style={{flex: 1, backgroundColor: 'red'}} />
+      <View style={{flex: 1, backgroundColor: 'orange'}} />
+      <View style={{flex: 1, backgroundColor: 'yellow'}} />
+      <View style={{flex: 1, backgroundColor: 'green'}} />
+      <View style={{flex: 1, backgroundColor: 'blue'}} />
+      <View style={{flex: 1, backgroundColor: 'indigo'}} />
+      <View style={{flex: 1, backgroundColor: 'violet'}} />
+
+      <View style={{padding: 10, paddingVertical: 25, justifyContent: 'center', alignItems: 'center'}}>
+      <TextInput
+        style={{height: 40, padding: 5}}
+        placeholder="Rainbow Colors"
+        onChangeText={newText => setText(newText)}
+        defaultValue={text}
+        textAlign={'center'}
+      />
+      <Text style={{padding: 10, fontSize: 67}}>
+        {text
+          .split(' ')
+          .map(word => word && '')
+          .join(' ')}
+      </Text>
+    </View>
+
+     
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 7,
+    padding: 50,
+  },
+});
+
+export default Flex;
